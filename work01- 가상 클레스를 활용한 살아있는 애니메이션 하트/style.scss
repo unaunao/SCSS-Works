@@ -1,0 +1,49 @@
+body {
+  background-color: #222;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.heart-beat {
+  width: 100px;
+  height: 100px;
+  position:relative;
+  background-color: #ff4757;
+  transform: rotate(45deg);
+  // box shadow 확장하고 싶을때 콤마로 이음
+  box-shadow: 0 -10px 100px #ff4757, 
+              0 -10px 150px #ff4757, 
+              0 -10px 200px #ff4757;
+  animation: heart-beat 0.5s linear infinite;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    // 부모에서 상속 받을 수 있는 요소들은 inherit으로 표기한다.
+    width: inherit;
+    height: inherit;
+    background-color: inherit;
+    border-radius: 50%;
+  }
+  &::before {
+    top: -50%;
+  }
+  &::after {
+    left: -50%;
+  }
+}
+// SCSS에서는 키프레임을 안에다 넣어도 알아서 빼고 컴파일함 어디에 넣어도 크게 상관없음 완전히 독립적인 것이기 때문에 가능하면 밖으로 빼 놓음
+@keyframes heart-beat {
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(45deg) scale(0.95);
+  }
+}           
