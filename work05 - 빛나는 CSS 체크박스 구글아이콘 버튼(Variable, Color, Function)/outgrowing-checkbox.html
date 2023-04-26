@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>빛나는 CSS 체크박스 구글아이콘 버튼(Variable, Color, Function)</title>
+  <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <ul class="icons">
+    <li>
+      <!-- label에 for를 쓸때는 inupt type 라디오나 체크 박스에 아이디와 매칭을 해줘야 함 -->
+      <!-- ex 명시적 표기법
+        <label for="chk1"></label> 
+        <input type="checkbox" id="chk1">
+    -->
+    <!-- 암시적 표기법 -->
+    <!-- label의 역활은 label을 눌렀을때 input 이 눌린 효과를 위해 -->
+      <label>
+        <input type="checkbox" name="check-item" checked>
+        <div>
+          <span class="material-symbols-outlined">
+            power_settings_new
+            </span>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" name="check-item">
+        <div>
+          <span class="material-symbols-outlined">
+            light_mode
+            </span>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" name="check-item">
+        <div>
+          <span class="material-symbols-outlined">
+            flight
+            </span>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" name="check-item">
+        <div>
+          <span class="material-symbols-outlined">
+            bluetooth
+            </span>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" name="check-item">
+        <div>
+          <span class="material-symbols-outlined">
+            wifi
+            </span>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" name="check-item">
+        <div>
+          <span class="material-symbols-outlined">
+            settings
+            </span>
+        </div>
+      </label>
+    </li>
+  </ul>
+
+</body>
+</html>
