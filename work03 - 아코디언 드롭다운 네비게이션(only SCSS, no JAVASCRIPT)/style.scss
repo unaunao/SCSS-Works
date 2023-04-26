@@ -1,0 +1,66 @@
+// target 가상 클레스 사용해 보기
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+}
+a{
+  text-decoration: none;
+  color:inherit;
+}
+
+/* Only CSS Accordion Navigation */
+.items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #535c68;
+  border-radius: 5px;
+  width: 250px;
+  overflow: hidden;
+  .close-item {
+    text-align: center;
+    background-color: crimson;
+  }
+  & li a {
+    color: #fff;
+    text-transform: capitalize;
+    padding: 10px;
+    display: block;
+  }
+  .main-item > a {
+    // position: relative;
+    border-bottom: 1px solid #00000021 ;
+    &::after {
+      font-family: fontawesome;
+      content:'\f107';
+      float: right;
+      // position: absolute;
+      // right: 10px;
+    }
+  }
+  .sub-items {
+    background-color: #626e7e;
+    // 포인트1. 가장긴 수치를 0으로
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    // target 가상클레스
+    // 여기서 타겟은 a태그에 href에 넣은 이름과 같은 아이디를 갖고 있는 곳
+    &:target {
+      // 포인트2. 가장 긴 것 기준으로 높이를 잡음 그래야 서브메뉴 갯수가 다르더라도 정확하게 표현될 수 있음
+      max-height:500px;
+    }
+    a {
+      border-bottom: 1px solid #00000015;
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+}
