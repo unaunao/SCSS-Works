@@ -1,0 +1,133 @@
+// Mixins
+/* Body 서식 minxin */
+@mixin default {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  color: #222;
+  line-height: 1.6em;
+  background-color: #f8f8f8;
+}
+
+/* 공통 디자인 mixin */
+@mixin heading {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: normal;
+  position: relative;
+  // 페딩으로 조절하는게 좋음
+  padding-bottom: 40px;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    background-color: crimson;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  span {
+    color: crimson
+  }
+}
+
+// Variables
+$font-base: 10px;
+$color-base: #fff;
+
+
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+/* XEION CDN */
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include default;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+}
+
+/* Portfolio Section */
+.portfolio {
+  margin: 15px;
+  h1 {
+    @include heading;
+    font-size: $font-base * 5;
+  }
+  .items {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 15px;
+    // grid-row-gap: 15px;
+    // grid-column-gap: 15px;
+    div {
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+      a {
+        img {
+          width: 100%;
+          // 이미지 block으로 하면서 위아래로 이미지를 가득 채움
+          display: block;
+        }
+      }
+      i {
+        font-size: $font-base * 3;
+        color: $color-base;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 0;
+      }
+      span {
+        color: $color-base;
+        position: absolute;
+        bottom: -40px;
+        width: 100%;
+        text-align: center; 
+        padding: 10px;
+      }
+      span, i, &::before{
+        transition: 0.35s;
+        // 밑에 있는 a 태그가 가려져서 작동 안하는 것을 방지 
+        // "마우스 이벤트를 받지마!"라는 명령을 하는 것임
+        pointer-events: none;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+      }
+      &:hover::before {
+        opacity: 1;
+      }
+      &:hover i{
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      &:hover span{
+        bottom: 0;
+      }
+    }
+    .focus {
+      // 아래 두가지를 한줄로 표현가능
+      // grid-column: span 2;
+      // grid-row: span 2;
+      grid-area: span 2 / span 2;
+    }
+  }
+}
