@@ -131,3 +131,40 @@ body {
     }
   }
 }
+
+// 보통 반응형 할때 Responsive.css를 만들어서 관리하는게 좋다.
+/* Tablet Breakpoint */
+// 아이페드 pro가 1366까지 나오기 때문에 1024에서 더 고려해서 변경함
+@media (min-width: 768px) and (max-width: 1366px) {
+  
+  body {
+    height: auto;
+  }
+
+.portfolio {
+    h1 {
+      font-size: $font-base * 4;
+    }
+    .items {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+  body {
+    height: auto;
+  }
+
+.portfolio {
+    h1 {
+      font-size: $font-base * 2.5;
+    }
+    .items {
+      grid-template-columns: repeat(2, 1fr);
+      .focus {
+        // grid-area: span 1 / span 1;
+      }
+    }
+  }
+}
