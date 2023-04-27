@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap");
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Login Form */
+.login {
+  width: 350px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  h1 {
+    font-weight: normal;
+    text-align: center;
+    font-size: 28px;
+    // h태그 자체가 상단에 마진이 많음
+    margin-top: 0;
+  }
+  input:not([type="submit"]) {
+    // 모든 html요소는 block으로 하면 width가 100%가 되지만 예외적으로 input과 button은 안 그렇다 따로 줘야 한다 
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 3px;
+    transition: 0.35s;
+    padding-left: 35px;
+    &:hover {
+      border: 1px solid skyblue;
+      box-shadow: 0 0 5px skyblue;
+    }
+    &[type="text"] {
+      background: url(images/icon-user.svg) no-repeat center left 5px / 20px;
+    }
+    &[type="password"] {
+      background: url(images/icon-password.svg) no-repeat center left 5px / 20px;
+    }
+    &[type="email"] {
+      background: url(images/icon-email.svg) no-repeat center left 5px / 20px;
+    }
+  }
+  input[type=submit] {
+    background-color: skyblue;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+      background-color: #000;
+    }
+  }
+}
