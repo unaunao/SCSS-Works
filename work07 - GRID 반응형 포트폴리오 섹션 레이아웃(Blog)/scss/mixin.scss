@@ -1,0 +1,32 @@
+// Mixins
+// Body 서식 minxin
+@mixin default {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  color: #222;
+  line-height: 1.6em;
+  background-color: #f8f8f8;
+}
+
+// 공통 디자인 mixin
+@mixin heading {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: normal;
+  position: relative;
+  // 페딩으로 조절하는게 좋음
+  padding-bottom: 40px;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    background-color: crimson;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  span {
+    color: crimson
+  }
+}

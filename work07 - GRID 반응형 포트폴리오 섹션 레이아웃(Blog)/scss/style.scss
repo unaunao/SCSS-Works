@@ -1,39 +1,6 @@
-// Mixins
-/* Body 서식 minxin */
-@mixin default {
-  font-family: 'Raleway', sans-serif;
-  margin: 0;
-  color: #222;
-  line-height: 1.6em;
-  background-color: #f8f8f8;
-}
-
-/* 공통 디자인 mixin */
-@mixin heading {
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  font-weight: normal;
-  position: relative;
-  // 페딩으로 조절하는게 좋음
-  padding-bottom: 40px;
-  &::before {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 4px;
-    background-color: crimson;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  span {
-    color: crimson
-  }
-}
-
-// Variables
-$font-base: 10px;
-$color-base: #fff;
+// import 된 파일이 변경 사항이 있으면 scss watching을 껐다 켜 봐야함
+@import "mixin";
+@import "variables";
 
 
 /* Google Web Font */
@@ -162,9 +129,34 @@ body {
     }
     .items {
       grid-template-columns: repeat(2, 1fr);
-      .focus {
-        // grid-area: span 1 / span 1;
-      }
+      // .focus {
+      //   grid-area: span 1 / span 1;
+      // }
     }
   }
+}
+
+/* fatherlight Custom CSS */
+.featherlight .featherlight-content {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-height: 100% !important;
+  width:100%;
+  height: 100%;
+}
+.featherlight .featherlight-inner {
+  width: 100%;
+  height: 100%;
+}
+.featherlight .featherlight-close-icon{
+  top:90% !important;
+  left: 30px !important;
+  left: 50% !important;
+  transform: translateX(-50%);
+  line-height: 50px !important;
+  width: 50px !important;
+  font-size: 28px;
+  background-color: crimson !important;
+  color: #fff !important;
+  border-radius: 50%;
 }
